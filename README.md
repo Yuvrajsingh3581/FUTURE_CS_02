@@ -21,13 +21,17 @@ performed — this is analysis and awareness only.
 ## Repository Structure
 
 FUTURE_CS_02/
+
 -README.md
+
 -report/
+
 -samples/
    * safe/
    * suspicious/
    * phishing/
-- screenshots/
+
+-screenshots/
 
 
 
