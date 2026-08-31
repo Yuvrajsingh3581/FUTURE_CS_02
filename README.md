@@ -28,12 +28,11 @@ FUTURE_CS_02/
 
 ├── samples/
 
-│   ├── safe/
+│       ├── safe/
 
-│   ├── suspicious/
+│       ├── suspicious/
 
-│   └── phishing/
-
+│       └── phishing/
 └── screenshots/
 
 
