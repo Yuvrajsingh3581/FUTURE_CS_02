@@ -22,16 +22,16 @@ performed — this is analysis and awareness only.
 
 FUTURE_CS_02/
 
--README.md
+- README.md
 
--report/
+- report/
 
--samples/
+- samples/
    * safe/
    * suspicious/
    * phishing/
 
--screenshots/
+- screenshots/
 
 
 
