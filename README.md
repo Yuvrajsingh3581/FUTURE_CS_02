@@ -37,8 +37,8 @@ FUTURE_CS_02/
 |---|---|---|---|
 | 1 | Security alert | no-reply@accounts.google.com | Safe |
 | 2 | Find out more about our updated Terms of Service | google-noreply@google.com | Safe |
-| 3 | Something EVERY Business Needs! | 2b1lf@msn.com | Suspicious/Spam |
-| 4 | Get Paid For What You Know | 63rlfplk4@aaaticketsource.com | Suspicious/Spam |
+| 3 | Something EVERY Business Needs! | 2b1lf@msn.com | Suspicious |
+| 4 | Get Paid For What You Know | 63rlfplk4@aaaticketsource.com | Suspicious |
 | 5 | CLIENTE PRIME - BRADESCO LIVELO... | banco.bradesco@atendimento.com.br | Phishing |
 | 6 | Verify Your Wallet Now... | support@pcpilrjf.zendesk.com | Phishing |
 
