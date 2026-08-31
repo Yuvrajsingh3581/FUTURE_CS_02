@@ -1,0 +1,406 @@
+Delivered-To: riyarajput9750237@gmail.com
+Received: by 2002:a05:6358:518e:b0:29b:552c:4123 with SMTP id 14csp3431493rwk; Thu, 18 Jun 2026 11:59:14 -0700 (PDT)
+X-Received: by 2002:a05:690e:4395:b0:660:5d71:7b37 with SMTP id 956f58d0204a3-662fccd7fabmr781682d50.54.1781809154138; Thu, 18 Jun 2026 11:59:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781809154; cv=none; d=google.com; s=arc-20240605; b=Ae7huhSPjwgyoA2Nvy0qtShbXMxMNoMwBWhyt9vj7qidQ3NMmye8K5c97yQ1ISR+L/ avmM6rDGoMIxd27uLJZ/Sw1d32FdNrzR0FCAZ8p+NN6oQkxrAg3KAiNqYwyqNq/ACTnd F4GQk/NcA1+XtttV4heXAcE2QGTjd36jFeOSj649PVZ3lInmU4bQHHryY2Fd4os07gth DosvjTjdlkEYcU/RmM2C2xtFsi/vvmPziqrFgppid9AYOWbKno1vxEL/bpEeBiYXmB90 dkvpjvVngMU3PIwMB/1hLOD+DUXx8kkttsP03d59DHkhhE/ZxHBdYg620/7SSF/41shQ qAxg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605; h=to:from:subject:message-id:gmsai:feedback-id:date:mime-version :dkim-signature; bh=6/dpsR2GKk5rHnP9aSW+D4h5Bn2XtkUwVZteuGVafjA=; fh=L63qeOng2uYFO4vggy7orl8gV6JawXStzz/QOm8Al0I=; b=CiWfiiBPPXoJa+sSPUxXBT7jxNfNXkTOIdcFa9KIHha1HqMAz7DbsmypMHI6Loxt37 18E6knnwUa/bC875oMurnMzdNm2m/GT4k0zRsb1UFfVaPgpsD/jqHLKi4iz29bdTaEn8 2dgco+PAWy6rxy71IiALYtEXVUasGgxsT49QVIkSAXyd3AimPMBIdwBplyzT3Dh5nF5w fGvIyqgXLO8uZxQWU1EC3KYA07PyDi3PxaJhmis/Hfprk80JSvTMUYIk02x2tzEuPrBn ym6+8OzI3YclruJTrLAxCM5S3fkK5u+ruTvnsuv/7r84ju9W+7P7nafLnvL/ksrPksIN SeuA==; dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; dkim=pass header.i=@google.com header.s=20251104 header.b=kUTOFCaJ; spf=pass (google.com: domain of 3aua0ag4keaoqyyqvo-xybozviqyyqvo.mywbsikbktzedtrpkmnrqwksv.myw@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3AUA0ag4KEaoQYYQVO-XYbOZViQYYQVO.MYWbSiKbKTZedtrpkmnrQWKSV.MYW@scoutcamp.bounces.google.com; dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com; dara=pass header.i=@gmail.com
+Return-Path: <3AUA0ag4KEaoQYYQVO-XYbOZViQYYQVO.MYWbSiKbKTZedtrpkmnrQWKSV.MYW@scoutcamp.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69]) by mx.google.com with SMTPS id 956f58d0204a3-662fdf25677sor341512d50.11.2026.06.18.11.59.14 for <riyarajput9750237@gmail.com> (Google Transport Security); Thu, 18 Jun 2026 11:59:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3aua0ag4keaoqyyqvo-xybozviqyyqvo.mywbsikbktzedtrpkmnrqwksv.myw@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com; dkim=pass header.i=@google.com header.s=20251104 header.b=kUTOFCaJ; spf=pass (google.com: domain of 3aua0ag4keaoqyyqvo-xybozviqyyqvo.mywbsikbktzedtrpkmnrqwksv.myw@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3AUA0ag4KEaoQYYQVO-XYbOZViQYYQVO.MYWbSiKbKTZedtrpkmnrQWKSV.MYW@scoutcamp.bounces.google.com; dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com; dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20251104; t=1781809154; x=1782413954; dara=google.com; h=to:from:subject:message-id:gmsai:feedback-id:date:mime-version:from :to:cc:subject:date:message-id:reply-to; bh=6/dpsR2GKk5rHnP9aSW+D4h5Bn2XtkUwVZteuGVafjA=; b=kUTOFCaJMal9wnvxr8DfKft1KBowkscKkmlhhLiauR2/BwmVyupgFwCWNV6KCvwprZ ku6Nv5y9HwcThwnpz3s/PlSIhxVUZC+dxAShaPbPW7a0P1nZGQV+b2SGXsUwU1iWKykP JTunheL/1cOM+5llkTCVH4F0QtS42PJdaIEHEqtC4hAc/jqdcbVeOPhyTtrvTOkLroK6 KRZlNP8ghIXPYGUow+2DPud2B6gaAOpU2snPxOBCIReRKBL0xVv39IiclZaRvDBl5Xsc XJFHOWPbX4MD/DapNlSZC8OswVoIvlzqzd2pPC50uP8YUrdQSDLyWiUcloVuQRCEhb8G Rnmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1e100.net; s=20251104; t=1781809154; x=1782413954; h=to:from:subject:message-id:gmsai:feedback-id:date:mime-version :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to; bh=6/dpsR2GKk5rHnP9aSW+D4h5Bn2XtkUwVZteuGVafjA=; b=EUgWVXfAG7dOURQWd5bMM8gnBwPZEKJe4JFU5lkevNPK8EzCK1+RbAqYQ3IcDvBMRv zXz6iOS3+QayjLZIGr4IkUIVJDIV2aZkUCYrCoX6Pfo57ByDrF2WplH0iwOdEIJMuPrt dvlCdVjdsvSN7wO9qErJrj/mGNRRZIN5te+k4QkZQ1ERZF/TMTuQuhD4CgTczg0/iDAH i7WKWjUpzAhedgWrz7Rp/JPWjw/8nPVSSHUT3gL6I05sWsUnYSza/0sziG0Fk0oFRqGh oSFkCY4tQwx3zVWIxB/xMZaSh2OQSvhDGgfkTauHk769UQyN30os0A/2g8UMEuCmcqUw AVHw==
+X-Gm-Message-State: AOJu0Yz7czIMMqNr70KPk0qK3Urdo9wSy88GkRHIr6l0ulPz5kTUUVyu VQWhDF4LdT/2wjyStUhr+WK4k0KjxpkFumKCzb6kBqCY0uG4pRk7xr6i64Ud
+MIME-Version: 1.0
+X-Received: by 2002:a05:690e:150c:b0:660:5a88:6442 with SMTP id 956f58d0204a3-662fce12b3dmr861866d50.64.1781809153952; Thu, 18 Jun 2026 11:59:13 -0700 (PDT)
+Date: Thu, 18 Jun 2026 11:59:13 -0700
+Feedback-ID: P77029e45cd-0:C3847188797:M111218056-en:gamma
+gmsai: true
+X-Google-Notification-Metadata: CgISAA
+X-Notifications: f1b6695bbd8e0000
+X-Notifications-Bounce-Info: AZJPhI02jS-51W6rW96jbURvMcfuZaSmtKCGMLLG0cZeDP9gYSe0QRiFvxgaskCcAM9agZ2BqIA-clwpHXCKzPquaF78e40YqgkCojq7C8rsULvnoGZqQayMXuONB7f7x29x48MJisNgOhLT_1gLv2uTrAAyNEhtxByPr4oRXM5z3J2SxslcpHNsUKbStw3zLW_3gGudmjcZMIE3UAmkkM12Ef9CyZX6HM42uHKFL1ctzb5hq4mzkvnpZKXMf9bwJxV1T-RxIX5maxEix44MPMkGen2Sy3VWwU2gyOp2SNhWOD0sOpLT2NVR7Pd4q3Qqo6VnoNLS_VgdqVITOYUQfd_d6zMMfAWLOdx7HhihxSg22S8TgEbY585Ua5q23OFPVu22ZQEwxENwpJ8LmQuGwUlKRwwnvK5pR91FxBbzCaV_-xGqMt4u0DgjgyNku-9m8MSC_v7FqzuuvBYqjhEncO7qSnrW4HD97jbcQuFnagzp2S0ceeprsjWriVilR8mMhKB5hFrMdxLR2qrzYvquQNf3eNBvN1f1HJoj5xmX-6tYQTgYrF29moH-PMEQxy-PU5n4Wso6IpV_uSiGzKwzVorCKnZlIeaPccWfYzip8oa9sv_5vVaMuwNjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <7a1975938ffc8c5e53b44cc0c363e607c71dd979-20400046-613148321@google.com>
+Subject: Find out more about our updated Terms of Service
+From: Google <google-noreply@google.com>
+To: riyarajput9750237@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000adcaa806548bc5ac"
+
+--000000000000adcaa806548bc5ac
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+cml5YXJhanB1dDk3NTAyMzdAZ21haWwuY29tDQoNCkV2ZXJ5IGNvdXBsZSBvZiB5ZWFycywgd2Ug
+dXBkYXRlIG91ciBUZXJtcyBvZiBTZXJ2aWNlLiBXZSB3YW50ZWQgdG8gbGV0IHlvdSAgDQprbm93
+IGFoZWFkIG9mIHRpbWUgdGhhdCB0aGUgbmV4dCB1cGRhdGUgd2lsbCBiZSBvbiAzMCBKdWx5IDIw
+MjYuDQoNClRoZXNlIGNoYW5nZXMgd29uJ3QgYWZmZWN0IHRoZSB3YXkgdGhhdCB5b3UgdXNlIG91
+ciAgDQo8aHR0cHM6Ly9jLmdsZS9BT1B5REtTZVQzaTlUUEVRc19OZ2JLUTdjdWdlQnBGemVJQUZB
+YzRqN2U0U0JWX09vTDFkcEp2S1pFcXppX1pocFZ0ZU1TNGp1UUpBSVhHSGZzVzJnc0NMZGhMT1lv
+ZjdGeTUtd2w4MXJ2M0hvN2FKQ2d6WGNUSS1vZTFOVUh6NEcxYVB2ZmhHd2VKdmhHMURDc05wSXBU
+WHlxVVJrS2RnVml2a2ZFYVhfbVJkdmxIZm01RzQyUEVoT0lnUmJPMmRLd1RiQ0d1bnBLMkphU0VB
+WXJPVlFXYjIyNU40SGVuRkdIMnB2ck0tRUxZVm1SMlVDZGdZSVVqdjg2N25oSVdleU1GTXdXYVVx
+QzFYNTlraVVEQjdhUzdCTm5BTTU0YldvQT5zZXJ2aWNlcywgIA0KYnV0IHRoZXkgc2hvdWxkIGhl
+bHAgbWFrZSBpdCBlYXNpZXIgZm9yIHlvdSB0byB1bmRlcnN0YW5kIHdoYXQgdG8gZXhwZWN0ICAN
+CmZyb20gR29vZ2xlIOKAkyBhbmQgd2hhdCB3ZSBleHBlY3QgZnJvbSB5b3Ug4oCTIGFzIHlvdSB1
+c2Ugb3VyIHNlcnZpY2VzLg0KDQpZb3UgY2FuIHJldmlldyB0aGUgIA0KPGh0dHBzOi8vYy5nbGUv
+QU9QeURLUVZ0U3ZsS052Y1BJNzBCTlM3U25QN3pRazV0UFZ1UFRtV05Gb0FtY0hEQ3FzOWZHZ0l2
+Z0luQmxvSkVvOTFZdjBMR1pocDUwYy1LZ3RvcFpRdmlhSU5KY0pzbHJDX2pNRkFnVnh2eThXQnhZ
+dGprNTRyQ2dfVmdnYWxkYTlrVl9wSlQweFJuUUxGVFZ6SFpUQXZhRldBcmlKM0d1SUxGY1BuVGRn
+WW0tR1pNM2FPQ0FYLUljREItZUc4NDBVcHNPN0stUGhIdlhLQVgtLVlUVVVjSC1WY19qUnFIMHgx
+U0FpR01fNXZzLTFSQ0kxTFhTNXFGT2Y3bV91OUFNd0ZpWmN5djZLRFhLamh5bGZJPm5ldyAgDQp0
+ZXJtcyBoZXJlLiBJZiB5b3UncmUgYmFzZWQgaW4gdGhlIEV1cm9wZWFuIEVjb25vbWljIEFyZWEg
+KEVFQSkgb3IgIA0KU3dpdHplcmxhbmQsIHdlJ3ZlIGFsc28gcHJvdmlkZWQgYSAgDQo8aHR0cHM6
+Ly9jLmdsZS9BT1B5REtUSERtNFZXMF9CWmowUHFGSmNHTEtoTkxFMUNrRXBUVF90NVBnUGhXbFpC
+VXRHM21pY2RUREkwX2lsTnVORWxmY3BPQXU4YnhLNkxuVE9HRThWVmdEeTA1Y18xaG1uOVh4ajho
+bklVQ2lTeEZMLTh5cElhcVFpb2VYR1NxWGJKbC1MWk8xeHFzV3RFblpzUm1DWXpIYnFJLWVQSkEy
+TzJkT09fMW5LTnZKeXVEanc2aEd5R0g0djhiVURKdmFLX2JQRlAzSjNqSGZxcmM4eE5uaHR4OWV6
+alJ4N0Q1LXh1RExSaEpQbmlLSFhDYlJrRkxJODhUNFBJTDlCNXdUdDZULXZXVkVJNjdmWkJib0R2
+UT5zdW1tYXJ5ICANCm9mIHRoZSBrZXkgY2hhbmdlcyB0byB0aGUgRUVBIHZlcnNpb24gb2Ygb3Vy
+IHRlcm1zLg0KDQpBdCBhIGdsYW5jZSwgaGVyZSdzIHdoYXQgdGhpcyB1cGRhdGUgbWVhbnMgZm9y
+IHlvdToNCg0KSW4gZ2VuZXJhbDoNCg0KV2UgYWRkZWQgYSBzZWN0aW9uIHRvIGhlbHAgeW91IGJl
+dHRlciB1bmRlcnN0YW5kIHdoeSBvdXIgc2VydmljZXMgbWF5ICANCmFjY2VzcyB0aGUgSW50ZXJu
+ZXQgd2hlbiBub3QgYWN0aXZlbHkgZW5nYWdlZCBhbmQgdG8gZW5jb3VyYWdlIHlvdSB0byBjaGVj
+ayAgDQp5b3VyIEludGVybmV0IHNlcnZpY2UgcGxhbiBhbmQgeW91ciBkZXZpY2UgYW5kIG5ldHdv
+cmsgc2V0dGluZ3MsIGFzIGVhY2ggb2YgIA0KdGhvc2UgbWF5IGFmZmVjdCB5b3VyIGNvc3RzLg0K
+DQpXZSB1cGRhdGVkIGFuZCBjbGFyaWZpZWQgb3VyIFNldHRsaW5nIGRpc3B1dGVzLCBnb3Zlcm5p
+bmcgbGF3IGFuZCBjb3VydHMgIA0Kc2VjdGlvbi4NCg0KV2UgbWFrZSBpdCBjbGVhcmVyIGhvdyB2
+YXJpb3VzIHNlY3Rpb25zIGluIG91ciB0ZXJtcyByZWxhdGUgdG8gZWFjaCBvdGhlci4NCg0KSWYg
+eW91J3JlIGJhc2VkIGluIHRoZSBFRUE6DQoNCkluIGFkZGl0aW9uIHRvIHRoZSBjaGFuZ2VzIGlu
+IHRoZSBJbiBnZW5lcmFsIHNlY3Rpb24sIHdlIHVwZGF0ZWQgdmFyaW91cyAgDQpzZWN0aW9ucyB0
+byByZWZsZWN0IHRoZSBsYXRlc3QgRUVBIGxhd3MgYW5kIHJlZ3VsYXRpb25zIHRoYXQgYXBwbHkg
+dG8gb3VyICANCnNlcnZpY2VzLCBpbmNsdWRpbmc6DQoNCkdvb2dsZSdzIG9ibGlnYXRpb24gdG8g
+bWFrZSBsZWdhbGx5IHJlcXVpcmVkIHVwZGF0ZXMgdG8gb3VyIGRpZ2l0YWwgIA0KY29udGVudCwg
+c2VydmljZXMgYW5kIGdvb2RzLg0KDQpBIG5ldywgb25saW5lICd3aXRoZHJhd2FsIGJ1dHRvbicg
+aW4gdGhlIEVFQSBpbnN0cnVjdGlvbnMgb24gd2l0aGRyYXdhbCAgDQpzZWN0aW9uLg0KDQpXZSBh
+bHNvIHJlbW92ZWQgdGhlIEhhbmRsaW5nIHJlcXVlc3RzIGZvciB5b3VyIGRhdGEgc2VjdGlvbiwg
+YmVjYXVzZSB3ZSdyZSAgDQpjZW50cmFsaXNpbmcgb3VyIGRhdGEgZGlzY2xvc3VyZSBsYW5ndWFn
+ZSBvbiBvdXIgIA0KPGh0dHBzOi8vYy5nbGUvQU9QeURLUnBoS0tiVjROLWNZUkV1QUJfQnJkT1Bq
+dEh0RVRxVkFRR1QxeTg5SHEwV0w0QnpfSmxNdWt0SFczdUFVU2ZBcVhvb1BSdlp6UXh1TzJrMjZY
+dVYza0tEQUo3Tks2YWRhbDJOdndqZFk1cVRaYm1Ua0lxS0hLRVZ2X2xlcFROSVlZRWRYR0d4WDM0
+RzNTYnpadTBmWjROWUt0UDViX1d3SVl1N3d6WFNGc1hxMXh1WWc0RGZ3aW9wNVk1di1kYUlMWjU2
+N0RQbndHV1BtdUhNczVnYWpaeFdaRXdHVnpjUnYtUlZPVUxXb2xSSkZXdnFOX1BXTzNldllmY0xo
+aWEyalc0bVdxWk9yaG1PbnpueUlLQXltSk1MQ1I0dkktX2FLVT5tYWluICANCmRhdGEgZGlzY2xv
+c3VyZSBwb2xpY3kgcGFnZS4NCg0KSWYgeW91J3JlIGJhc2VkIG91dHNpZGUgdGhlIEVFQToNCg0K
+SW4gYWRkaXRpb24gdG8gdGhlIGNoYW5nZXMgaW4gdGhlIEluIGdlbmVyYWwgc2VjdGlvbiwgd2Ug
+YWRkZWQgbmV3ICANCmRpc2Nsb3N1cmVzIGFuZCBkaXNjbGFpbWVycywgaW5jbHVkaW5nIG9uZXMg
+YWJvdXQgQUkgb3V0cHV0cy4NCg0KSWYgeW91J3JlIGJhc2VkIGluIEluZGlhLCB3ZSBhbHNvIGFk
+ZGVkIG5ldyByZXBvcnRpbmcgbGFuZ3VhZ2UgYWJvdXQgb3VyICANCm9ibGlnYXRpb25zIGlmIHlv
+dSB2aW9sYXRlIGFwcGxpY2FibGUgbGF3Lg0KDQpJZiB5b3UncmUgYSBwYXJlbnQgb3IgZ3VhcmRp
+YW4gYW5kIHlvdSBhbGxvdyB5b3VyIGNoaWxkIHRvIHVzZSB0aGUgIA0Kc2VydmljZXMsIHBsZWFz
+ZSByZXZpZXcgdGhlIHVwZGF0ZXMgdG8gb3VyIHRlcm1zIHdpdGggeW91ciBjaGlsZCBhbmQgaGVs
+cCAgDQp0aGVtIGRlY2lkZSB3aGV0aGVyIHRoZXkgbmVlZCB0byBtYWtlIGFueSBjaGFuZ2VzIHRv
+IHRoZWlyIGFjY291bnQuIFBsZWFzZSAgDQpyZW1lbWJlciB0aGF0IHRoZXNlIHRlcm1zIGFwcGx5
+IHRvIHlvdSBhbmQgdGhhdCB5b3UncmUgcmVzcG9uc2libGUgZm9yIHlvdXIgIA0KY2hpbGQncyBh
+Y3Rpdml0eSBvbiB0aGUgc2VydmljZXMuDQoNCklmIHlvdSBkb24ndCBhZ3JlZSB0byB0aGUgbmV3
+IHRlcm1zLCB5b3Ugc2hvdWxkIHJlbW92ZSAgDQo8aHR0cHM6Ly9jLmdsZS9BT1B5REtSRjBzZzVn
+YmN1T0gweFNxdHBNbE40aEJ1TlpNMmNfNXpnVGppdnVqWG5IaDVDODFxbFpHX1dOYTgtRWQ2R2ZD
+RWZySGJ4UUVoSy1pcmZzZGxaNXNCX09MQnhvZlBqS1VUSmJWX213UFFKTmlWbHBZZ2g0UklnUEVQ
+cXBubkdVcG02YlNnc3NOVE0wSlVZUEJDVnZjbnFZT0ltNHJWX0pBdkdxNVREeEY3ZXA5YXJhMjVT
+ZkJ1a294c1FOUktkcTFod2NkSVFnQ2JJX1l4LVh3SlJkUlV5YkVSMjI2S2hEQVVNa1pqTmgxM0NO
+TmEyaDVOamNuc3hNR2hFQ2RTX1lPUWx6dkl1UnZxYUFCdWZKeVRtcV9GVHYyOEdHYy1wQWFrY29K
+TmUyVUtTVHUyakdaVXdZdDB0PnlvdXIgIA0KY29udGVudCBhbmQgc3RvcCB1c2luZyB0aGUgc2Vy
+dmljZXMuIFlvdSBjYW4gYWxzbyBlbmQgeW91ciByZWxhdGlvbnNoaXAgIA0Kd2l0aCB1cyBhdCBh
+bnkgdGltZSwgd2l0aG91dCBwZW5hbHR5LCBieSAgDQo8aHR0cHM6Ly9jLmdsZS9BT1B5REtTckYt
+SkFRN2FJQWdwdEZmeFhhcVREdU50dm81dUFGVTdzWjQwYW8tbldRSlcyM3FRanBGbWdvSE95SWpS
+UHNITm5lVXlFLXBBNnNvbzZxT2VUTlJiNloyNkdGSTM0bUJ0cFlBc3NPQmJxSFdBeDBjYkNKRmxj
+N0E5c0NvZXJGcmxuTWJ2NG1SSHRtYU12aUsxSTR1bzdOOTkwbllIUWFVVjkwN0FzODdIUzN2WFYt
+SXZsd2trM0lSeURwS2ZNZjRObDNxTkR5a0xzaHNpVF81VU1mY3lvZ296ZGNHbnRyRkZjVno4YTJM
+Z09wWHo2M3pDTEZSQTRjWG5BT01ZTXdrQlptcHFRRVdJUmJFbzNlWjQyNUNGT3k1amFHdz5jbG9z
+aW5nICANCnlvdXIgR29vZ2xlIEFjY291bnQuDQoNClRoYW5rIHlvdSBmb3IgdXNpbmcgR29vZ2xl
+IHNlcnZpY2VzIQ0KDQrCqSAyMDI2IEdvb2dsZSBMTEMgMTYwMCBBbXBoaXRoZWF0cmUgUGFya3dh
+eSwgTW91bnRhaW4gVmlldywgQ0EgOTQwNDMNCg0KWW91IGhhdmUgcmVjZWl2ZWQgdGhpcyBlbWFp
+bCB0byB1cGRhdGUgeW91IGFib3V0IGltcG9ydGFudCBjaGFuZ2VzIHRvICANCkdvb2dsZSdzIFRl
+cm1zIG9mIFNlcnZpY2UuDQo=
+--000000000000adcaa806548bc5ac
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns:v=3Durn:schemas-microsoft-com:vml xmlns:o=3Durn:=
+schemas-microsoft-com:office:office lang=3Den><head><style>
+*{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{c=
+olor:inherit!important;text-decoration:inherit!important}#MessageViewBody a=
+{color:inherit;text-decoration:none}p{line-height:inherit}.desktop_hide,.de=
+sktop_hide table{mso-hide:all;display:none;max-height:0;overflow:hidden}.im=
+age_block img+div{display:none}sub,sup{font-size:75%;line-height:0}#convert=
+ed-body .list_block ol,#converted-body .list_block ul,.body [class~=3Dx_lis=
+t_block] ol,.body [class~=3Dx_list_block] ul,u+.body .list_block ol,u+.body=
+ .list_block ul{padding-left:20px} @media (max-width:590px){.mobile_hide{di=
+splay:none}.row-content{width:100%!important}.stack .column{width:100%;disp=
+lay:block}.mobile_hide{min-height:0;max-height:0;max-width:0;overflow:hidde=
+n;font-size:0}.desktop_hide,.desktop_hide table{display:table!important;max=
+-height:none!important}.row-1 .column-1 .block-1.image_block td.pad{padding=
+:0 0 0 15px!important}}
+</style></head><body dir=3Dltr class=3Dbody style=3Dbackground-color:#fafaf=
+a;margin:0;padding:0;-webkit-text-size-adjust:none;text-size-adjust:none>
+<title></title><meta http-equiv=3DContent-Type content=3D"text/html; charse=
+t=3Dutf-8"><meta name=3Dviewport content=3Dwidth=3Ddevice-width,initial-sca=
+le=3D1><!--[if mso]>
+<xml><w:WordDocument xmlns:w=3D"urn:schemas-microsoft-com:office:word"><w:D=
+ontUseAdvancedTypographyReadingMail/></w:WordDocument>
+<o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/=
+></o:OfficeDocumentSettings></xml>
+<![endif]--><!--[if !mso]><!--><link href=3Dhttps://fonts.googleapis.com/cs=
+s?family=3DRoboto:400,500,600,700;display=3Dswap rel=3Dstylesheet type=3Dte=
+xt/css><link href=3Dhttps://fonts.googleapis.com/css?family=3DGoogle+Sans+T=
+ext:400,500,700%7CRoboto:400,500,700;display=3Dswap rel=3Dstylesheet type=
+=3Dtext/css><link href=3Dhttps://fonts.googleapis.com/css?family=3DGoogle+S=
+ans:400,500,600,700%7CRoboto:400,500,600,700;display=3Dswap rel=3Dstyleshee=
+t type=3Dtext/css><!--<![endif]--><!--[if mso ]><style>sup, sub { font-size=
+: 100% !important; } sup { mso-text-raise:10% } sub { mso-text-raise:-10% }=
+</style> <![endif]--><table class=3Dnl-container width=3D100% border=3D0 ce=
+llpadding=3D0 cellspacing=3D0 role=3Dpresentation style=3Dmso-table-lspace:=
+0;mso-table-rspace:0;background-color:#fafafa><tbody><tr><td><table class=
+=3D"row row-1" align=3Dcenter width=3D100% border=3D0 cellpadding=3D0 cells=
+pacing=3D0 role=3Dpresentation style=3Dmso-table-lspace:0;mso-table-rspace:=
+0><tbody><tr><td><table class=3Drow-content align=3Dcenter border=3D0 cellp=
+adding=3D0 cellspacing=3D0 role=3Dpresentation style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;border-radius:0;color:#000;width:570px;margin:0 auto" wi=
+dth=3D570><tbody><tr><td class=3D"column column-1" width=3D50% style=3Dmso-=
+table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-b=
+ottom:20px;padding-left:35px;padding-right:35px;padding-top:20px;vertical-a=
+lign:middle><table class=3D"image_block block-1" width=3D100% border=3D0 ce=
+llpadding=3D0 cellspacing=3D0 role=3Dpresentation style=3Dmso-table-lspace:=
+0;mso-table-rspace:0><tbody><tr><td class=3Dpad style=3Dwidth:100%;padding-=
+right:0;padding-left:0><div class=3Dalignment align=3Dleft><div style=3Dmax=
+-width:75.25px><img src=3Dhttps://ci3.googleusercontent.com/meips/ADKq_Na_B=
+BdWw4xSS1_7W0tRI-DubxDZ-zMFzjRzsAmvUiqb-6gL7Jet5x7E0yEggz3waGJpU7WGwrwsKD6W=
+nXyjJDfHE6ceVQ6TY7Dknt9OK4MdcewBpTNfNIxYzJ_R=3Ds0-d-e1-ft#http://services.g=
+oogle.com/fh/files/emails/updated_google_logo_new.png style=3Ddisplay:block=
+;height:auto;border:0;width:100% width=3D75.25 alt=3D"" title=3D"" height=
+=3Dauto></div></div></td></tr></tbody></table></td><td class=3D"column colu=
+mn-2" width=3D50% style=3Dmso-table-lspace:0;mso-table-rspace:0;font-weight=
+:400;text-align:left;padding-bottom:5px;padding-top:5px;vertical-align:midd=
+le><table class=3D"paragraph_block block-1" width=3D100% border=3D0 cellpad=
+ding=3D10 cellspacing=3D0 role=3Dpresentation style=3Dmso-table-lspace:0;ms=
+o-table-rspace:0;word-break:break-word><tbody><tr><td class=3Dpad><div styl=
+e=3D"color:#5f6368;direction:ltr;font-family:&#39;Google Sans Text&#39;,Rob=
+oto,arial,sans-serif;font-size:14px;font-weight:400;letter-spacing:0;line-h=
+eight:1.2;text-align:right;mso-line-height-alt:17px"><p style=3Dmargin:0>ri=
+yarajput9750237@gmail.com=C2=A0</p></div></td></tr></tbody></table></td></t=
+r></tbody></table></td></tr></tbody></table><table class=3D"row row-2" alig=
+n=3Dcenter width=3D100% border=3D0 cellpadding=3D0 cellspacing=3D0 role=3Dp=
+resentation style=3Dmso-table-lspace:0;mso-table-rspace:0><tbody><tr><td><t=
+able class=3D"row-content stack" align=3Dcenter border=3D0 cellpadding=3D0 =
+cellspacing=3D0 role=3Dpresentation style=3D"mso-table-lspace:0;mso-table-r=
+space:0;background-color:#fff;color:#000;width:570px;margin:0 auto" width=
+=3D570><tbody><tr><td class=3D"column column-1" width=3D100% style=3Dmso-ta=
+ble-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-bot=
+tom:5px;padding-top:5px;vertical-align:top><table class=3D"image_block bloc=
+k-1" width=3D100% border=3D0 cellpadding=3D0 cellspacing=3D0 role=3Dpresent=
+ation style=3Dmso-table-lspace:0;mso-table-rspace:0><tbody><tr><td class=3D=
+pad style=3Dpadding-left:35px;padding-right:35px;padding-top:35px;width:100=
+%><div class=3Dalignment align=3Dcenter><div style=3Dmax-width:257px><img s=
+rc=3Dhttps://ci3.googleusercontent.com/meips/ADKq_Naedd9O5dZbKgg_VRWev0iVRw=
+5A_EL23lSD0qHYIbzD6pPnIs0Ai0cJ54Fi_2fTkgOl3YQSZWL30kw3Wg8R5J0DMOfabuh7EfOe4=
+2pS0bQlPT2QpRpYKQNI6ii47FoiY8TQboIVxzeJ7p7-YldAya7DR5eOmXG5Wrk6xaELjg=3Ds0-=
+d-e1-ft#https://www.gstatic.com/identity/boq/policies/msa/utos_illustration=
+-d3cb2a71970d5e9daf2e78a2ee367789.png style=3Ddisplay:block;height:auto;bor=
+der:0;width:100% width=3D257 alt=3D"" title=3D"" height=3Dauto></div></div>=
+</td></tr></tbody></table><table class=3D"paragraph_block block-2" width=3D=
+100% border=3D0 cellpadding=3D0 cellspacing=3D0 role=3Dpresentation style=
+=3Dmso-table-lspace:0;mso-table-rspace:0;word-break:break-word><tbody><tr><=
+td class=3Dpad style=3Dpadding-bottom:12px;padding-left:35px;padding-right:=
+35px;padding-top:25px><div style=3D"color:#3c4043;direction:ltr;font-family=
+:&#39;Google Sans Text&#39;,Roboto,arial,sans-serif;font-size:14px;font-wei=
+ght:400;letter-spacing:0;line-height:1.5;text-align:left;mso-line-height-al=
+t:21px"><p style=3Dmargin:0>
+Every couple of years, we update our <strong>Terms of Service</strong>. We =
+wanted to let you know ahead of time that the next update will be on <stron=
+g>30 July 2026</strong>.</p></div></td></tr></tbody></table><table class=3D=
+"paragraph_block block-3" width=3D100% border=3D0 cellpadding=3D0 cellspaci=
+ng=3D0 role=3Dpresentation style=3Dmso-table-lspace:0;mso-table-rspace:0;wo=
+rd-break:break-word><tbody><tr><td class=3Dpad style=3Dpadding-bottom:12px;=
+padding-left:35px;padding-right:35px;padding-top:25px><div style=3D"color:#=
+3c4043;direction:ltr;font-family:&#39;Google Sans Text&#39;,Roboto,arial,sa=
+ns-serif;font-size:14px;font-weight:400;letter-spacing:0;line-height:1.5;te=
+xt-align:left;mso-line-height-alt:21px"><p style=3Dmargin:0>
+These changes won&#39;t affect the way that you use our <a href=3Dhttps://c=
+.gle/AOPyDKT4ziYbdDhKaJju0DLknMudvE4iuS6xD_eBoAGJhaXxZXsuODS6Bbjd56U9iX0EZj=
+XPPz-pdIZXWqLUiHaFceREGMk9QRFptG-LCZ3VCrooYYElOuaN6T3zk0oCjTpwr4nlRiTD03131=
+E2LGJWRqY_Iegz-LNAPkMsA6Gl7r0FzFdfOrqA_G3qG_-jUm7lR51mZGmKaGtnjPLRtNUjQbK_k=
+bccGOpuKjw_Uo-jyR1DjAz1qxopD5X7YJGF-rNL6HToL__Tt9ZQQ6W--g2c6mgwWNfZyDw6V403=
+eIgrm7KrDv96z-hWX-BISDU1D8vOvtdpH8Z9Jki-nEF3bUT9PvlJTEusaJhqhapznXTVAr-WTGK=
+gBek6oIIOpCsOyFCrQO5IUW1knKVIEuU4g3Qc2n6lukj6Y158PaH724NZHo0P0TH0A-C9_En2u3=
+G6O1vLHD2PFLtvamYgnLsH14JjGQG2e_OQC8qtpRpjsHClcFxiy target=3D_self style=3D=
+"text-decoration: underline; color: #1967d2;">services</a>, but they should=
+ help make it easier for you to understand what to expect from Google =E2=
+=80=93 and what we expect from you =E2=80=93 as you use our services.</p></=
+div></td></tr></tbody></table><table class=3D"paragraph_block block-4" widt=
+h=3D100% border=3D0 cellpadding=3D0 cellspacing=3D0 role=3Dpresentation sty=
+le=3Dmso-table-lspace:0;mso-table-rspace:0;word-break:break-word><tbody><tr=
+><td class=3Dpad style=3Dpadding-bottom:12px;padding-left:35px;padding-righ=
+t:35px;padding-top:25px><div style=3D"color:#3c4043;direction:ltr;font-fami=
+ly:&#39;Google Sans Text&#39;,Roboto,arial,sans-serif;font-size:14px;font-w=
+eight:400;letter-spacing:0;line-height:1.5;text-align:left;mso-line-height-=
+alt:21px"><p style=3Dmargin:0>
+You can review the <a href=3Dhttps://c.gle/AOPyDKTJ2eXd7jfbRn71VslSg-AMNMQw=
+oDG1g1sXUb58aRc4_Klvtgr45hwCyzzWACF5Ui3ow-NB9W7oujXnktRZae2wScZHcgmZrj0ir8E=
+EhKEQ3EvYSBbpoDpjwI48RVgERUVOdM37rYOztWt3XDG6z1o1UqfcmGl-obpi40trVtzsbkDTp2=
+z2t8FbUcmNZ35XlZ5vXA4BHM_2qQInjg96MxNcVKrN-FzKom7Ip4FXaXsF209JpPaxF52oOArMH=
+iXVRPP9XcP2zkS68f8y2-HpFtt-rEwbLhw4szMZvgBL4yPB-1OWTQL6wKsQnz6SV16RXPTiD6GR=
+cuTOkbD1r5uOPwGkWz6xYpjV4R3FpBssnZxw17PlWkuE65oxwj95--S5jHaUlMbOwQaGr6z4Sej=
+YeUvudEdLyu4BMcH2Ce4XMT1Dqq3-lL0Kaa2xDCbqqVt8CFaazqLHD0OPuOaCAw target=3D_s=
+elf style=3D"text-decoration: underline; color: #1967d2;">new terms here</a=
+>. If you&#39;re based in the European Economic Area (EEA) or Switzerland, =
+we&#39;ve also provided a <a href=3Dhttps://c.gle/AOPyDKR-X5Mw6QCdJlyYOBoZI=
+GCNYJU5t_6Yizq-veeR8JhVn11WKiQ9i6i-da27FY7K4Hy_4kXghz2hXcABfJCh7jGcRJkABUF6=
+1eI7I54KYjMCi58AhPw5L9zI6Gj1rWvvRPAD30urD3mPh4aO1cDf4caSgHUH1DKKU_GdVe5S2bS=
+Qvp0P1SsROJ7X7Gx98GV4O7fcEsnY2l91m7JgAregdRGatkN-d4ElUVXjLmNvtqdCLusLrQ9jf9=
+PhzmovqoEVtv40_-fd2aVzq4BSWLAtY3tlys4E_I3Ngd3P4lrhvUnhvRe6L4OP6HJyeImPOvm4F=
+ZhIooLRlIrzfV4jroZqDs8r7TUK2Dwrk8PvESb7wERjuqZ2DjqAQmBhmFls5nVd5CbhkaE_Nf-8=
+xv03a6cM9PwLMSBf2De_hIhE0o4Ik47Gunqqg5wuE_xIGieVH0vwk8ntdD_YgVPsfDRJM8TS ta=
+rget=3D_self style=3D"text-decoration: underline; color: #1967d2;">summary =
+of the key changes to the EEA version of our terms</a>.</p></div></td></tr>=
+</tbody></table><table class=3D"paragraph_block block-5" width=3D100% borde=
+r=3D0 cellpadding=3D0 cellspacing=3D0 role=3Dpresentation style=3Dmso-table=
+-lspace:0;mso-table-rspace:0;word-break:break-word><tbody><tr><td class=3Dp=
+ad style=3Dpadding-bottom:12px;padding-left:35px;padding-right:35px;padding=
+-top:25px><div style=3D"color:#3c4043;direction:ltr;font-family:&#39;Google=
+ Sans Text&#39;,Roboto,arial,sans-serif;font-size:14px;font-weight:400;lett=
+er-spacing:0;line-height:1.5;text-align:left;mso-line-height-alt:21px"><p s=
+tyle=3Dmargin:0>
+At a glance, here&#39;s what this update means for you:</p></div></td></tr>=
+</tbody></table><table class=3D"list_block block-6" width=3D100% border=3D0=
+ cellpadding=3D0 cellspacing=3D0 role=3Dpresentation style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0;word-break:break-word;color:#3c4043;direction:ltr;=
+font-family:&#39;Google Sans Text&#39;,Roboto,arial,sans-serif;font-size:14=
+px;font-weight:400;letter-spacing:0;line-height:1.5;text-align:left;mso-lin=
+e-height-alt:21px"><tbody><tr><td class=3Dpad style=3Dpadding-bottom:12px;p=
+adding-left:35px;padding-right:35px;padding-top:12px><div style=3Dmargin-le=
+ft:-20px><ul start=3D1 style=3Dmargin-top:0;margin-bottom:0;list-style-type=
+:revert><li aria-level=3D1 style=3DMargin:0><strong>In general: </strong><d=
+iv style=3Dmargin-left:0><ul style=3Dmargin-top:0;margin-bottom:0;list-styl=
+e-type:revert><li aria-level=3D2 style=3DMargin:0>
+We added a section to help you better understand why our services may acces=
+s the Internet when not actively engaged and to encourage you to check your=
+ Internet service plan and your device and network settings, as each of tho=
+se may affect your costs.</li><li aria-level=3D2 style=3DMargin:0>We update=
+d and clarified our <em>Settling disputes, governing law and courts</em> se=
+ction.</li><li aria-level=3D2 style=3DMargin:0>We make it clearer how vario=
+us sections in our terms relate to each other.</li>
+</ul></div></li><li aria-level=3D2 style=3DMargin:0><strong>If you&#39;re b=
+ased in the EEA:</strong><div style=3Dmargin-left:0><ul style=3Dmargin-top:=
+0;margin-bottom:0;list-style-type:revert><li aria-level=3D2 style=3DMargin:=
+0>In addition to the changes in the <em>In general</em> section, we updated=
+ various sections to reflect the latest EEA laws and regulations that apply=
+ to our services, including:<br><div style=3Dmargin-left:0><ul style=3Dmarg=
+in-top:0;margin-bottom:0;list-style-type:revert><li aria-level=3D3 style=3D=
+Margin:0>Google&#39;s obligation to make legally required updates to our di=
+gital content, services and goods.</li><li aria-level=3D3 style=3DMargin:0>=
+A new, online &#39;withdrawal button&#39; in the <em>EEA instructions on wi=
+thdrawal </em>section.</li></ul></div></li><li aria-level=3D2 style=3DMargi=
+n:0>
+We also removed the <em>Handling requests for your data</em> section, becau=
+se we&#39;re centralising our data disclosure language on our <a href=3Dhtt=
+ps://c.gle/AOPyDKRCElf_L8YMwu79efwxeiGMaKe978APKtYQu9j-euW2bSHbPmrtZcSISOr5=
+_SGmIe_jRijM4bqoWV_8Deb4JZ4VKTNU07hXC5SUAny-MMoc8SXrFNbbsxeadeDdb6ndBT3vJNq=
+Z8G02sPgTLEPZ-peJD2vJeW3JqeevzSzsMmtQB8H5R_nkZMduRsjnQ6W7iN19HoN3UyO7FC_hKU=
+rcqyi3e_P4jvz0VDMuG3Vl_OX5w8esP62ZgAgj56yn6jslpU1RHV6gXvaUsw8R2aLe6YSsp-u0a=
+OQ-9lhJGMFw7Ig2gZtFxDDkRPxMch5Qu47eVF-FqHl_ikkC3Mb__zczY2mWUenMekWzJ380FhOM=
+P7no09N-xPYm_M0_G242R1oGbSUgyT8hEdvcbjsKRKepWL3GYXoSKHkixqQ5uJxmXRswFzzXlPS=
+M7pYVqvfRC1Rs_2cPnK5AiD7gO2CVoBeFqI8wloquEY0DDHu4-6FRFZvNDeO8uzRUFnk target=
+=3D_self data-mce-attributes-count=3D1 style=3D"text-decoration: underline;=
+ color: #1967d2;">main data disclosure policy page</a>.<a href=3Dhttps://c.=
+gle/AOPyDKRCElf_L8YMwu79efwxeiGMaKe978APKtYQu9j-euW2bSHbPmrtZcSISOr5_SGmIe_=
+jRijM4bqoWV_8Deb4JZ4VKTNU07hXC5SUAny-MMoc8SXrFNbbsxeadeDdb6ndBT3vJNqZ8G02sP=
+gTLEPZ-peJD2vJeW3JqeevzSzsMmtQB8H5R_nkZMduRsjnQ6W7iN19HoN3UyO7FC_hKUrcqyi3e=
+_P4jvz0VDMuG3Vl_OX5w8esP62ZgAgj56yn6jslpU1RHV6gXvaUsw8R2aLe6YSsp-u0aOQ-9lhJ=
+GMFw7Ig2gZtFxDDkRPxMch5Qu47eVF-FqHl_ikkC3Mb__zczY2mWUenMekWzJ380FhOMP7no09N=
+-xPYm_M0_G242R1oGbSUgyT8hEdvcbjsKRKepWL3GYXoSKHkixqQ5uJxmXRswFzzXlPSM7pYVqv=
+fRC1Rs_2cPnK5AiD7gO2CVoBeFqI8wloquEY0DDHu4-6FRFZvNDeO8uzRUFnk target=3D_sel=
+f data-mce-attributes-count=3D1 style=3D"text-decoration: underline; color:=
+ #1967d2;"></a></li>
+</ul></div></li><li aria-level=3D1 style=3DMargin:0><strong>If you&#39;re b=
+ased outside the EEA:=C2=A0</strong><div style=3Dmargin-left:0><ul style=3D=
+margin-top:0;margin-bottom:0;list-style-type:revert><li aria-level=3D2 styl=
+e=3DMargin:0>In addition to the changes in the <em>In general</em> section,=
+ we added new disclosures and disclaimers, including ones about AI outputs.=
+</li><li aria-level=3D2 style=3DMargin:0>
+If you&#39;re based in India, we also added new reporting language about ou=
+r obligations if you violate applicable law.</li></ul></div></li></ul></div=
+></td></tr></tbody></table><table class=3D"paragraph_block block-7" width=
+=3D100% border=3D0 cellpadding=3D0 cellspacing=3D0 role=3Dpresentation styl=
+e=3Dmso-table-lspace:0;mso-table-rspace:0;word-break:break-word><tbody><tr>=
+<td class=3Dpad style=3Dpadding-bottom:12px;padding-left:35px;padding-right=
+:35px;padding-top:25px><div style=3D"color:#3c4043;direction:ltr;font-famil=
+y:&#39;Google Sans Text&#39;,Roboto,arial,sans-serif;font-size:14px;font-we=
+ight:400;letter-spacing:0;line-height:1.5;text-align:left;mso-line-height-a=
+lt:21px"><p style=3Dmargin:0>
+If you&#39;re a parent or guardian and you allow your child to use the serv=
+ices, please review the updates to our terms with your child and help them =
+decide whether they need to make any changes to their account. Please remem=
+ber that these terms apply to you and that you&#39;re responsible for your =
+child&#39;s activity on the services.</p></div></td></tr></tbody></table><t=
+able class=3D"paragraph_block block-8" width=3D100% border=3D0 cellpadding=
+=3D0 cellspacing=3D0 role=3Dpresentation style=3Dmso-table-lspace:0;mso-tab=
+le-rspace:0;word-break:break-word><tbody><tr><td class=3Dpad style=3Dpaddin=
+g-bottom:12px;padding-left:35px;padding-right:35px;padding-top:25px><div st=
+yle=3D"color:#3c4043;direction:ltr;font-family:&#39;Google Sans Text&#39;,R=
+oboto,arial,sans-serif;font-size:14px;font-weight:400;letter-spacing:0;line=
+-height:1.5;text-align:left;mso-line-height-alt:21px"><p style=3Dmargin:0>
+If you don&#39;t agree to the new terms, you should remove <a href=3Dhttps:=
+//c.gle/AOPyDKTC9oozvyTMhmRnXyZZ5SLgvg3XZ1_JVpMjHkhW0xfOBtqzr3nNpKWHCweJmrj=
+VJsl22ZRuIQQNjPPsm8agw4DHEyiuMjVBchAX9e5p-sfa6vi4gPI-Ndv8R8Xx_xMiGFIMPAb8jU=
+8EX30gfCTfvmdigPYcCNCyvzOTMUJfNdQ-YY1QvPdwaqd1XxEkjeuFYbNtwx7rzcvo57YyUYqHT=
+aA04PXFx78GTCUFlwAdEqQlzFDwaiqNTsN7IYPX1QJ_Nro8unRtFaDDFCgNGJXUi4evc6T8zJ5z=
+EKzspnl0i_dW8HhTn60OIkprZp9HSxtFw4vxdAts2400UA_Am8WB1AzUr2aILmh4Ukfwicgr9xu=
+Ictk_gL2be3Z7Bh7fAXy8UTrWQPHQmHmIGJhJ2FqlwuPvaKpqVDXSk1GV02BxHYt0qqusIHwo09=
+vRVoQYiKLG5Xq8sHADZNjWwn_hc1sFAwlPthW5yDtfARi5y526HBxXkQVXGwS1dJIC2VV7JKatX=
+1M35svbVb811jaTdZSHFXN2PreBOdpLkw target=3D_self style=3D"text-decoration: =
+underline; color: #1967d2;">your content</a> and stop using the services. Y=
+ou can also end your relationship with us at any time, without penalty, by =
+<a href=3Dhttps://c.gle/AOPyDKSzDISg7-TpYrB0bhEOOX3-OQbOFoS4U21zVXlzNBGxILK=
+_ONaD-zbnHKnNzFWGZpH6FOghKCNBw5vvQS229bFfn0qTrrgkmaVjipgBmmCFUX_dDb8O8HAaYM=
+e6G-g8CdeIKvq-FuG6onFr-X_GAWC29BK_xBbGsBPEC64H4rcb7r6IrSraXUzO0nQTo71LAEeV7=
+cYB1JeYvUKzq6cMgWb4qppZazYXtbIqjNQ-cTAxRPxJxG_mrzGJjJc2aVP0YkGVwFKnotS9Z8kZ=
+D00lDpDozu8zLhWES91slC2fn8ZUOOfStwcaS7bik9c7K_OJRoOcw8_3mz6d2Wv6-EtjcfW79yH=
+ZyeWJGxsbcHApT-m69IxAgKDyZpbkqJ2kUaaV7NGLxhlAuytERbgPgfsyDvRwjRfi4CWd6VO1tR=
+u_60J91KcG_gm5U2RGE7Ocv-a8SJahuLs46IJnbQKyc9jNgBOWgctulXWvb81kwMg-JF-y targ=
+et=3D_self style=3D"text-decoration: underline; color: #1967d2;">closing yo=
+ur Google Account</a>.</p></div></td></tr></tbody></table>
+<table class=3D"paragraph_block block-9" width=3D100% border=3D0 cellpaddin=
+g=3D0 cellspacing=3D0 role=3Dpresentation style=3Dmso-table-lspace:0;mso-ta=
+ble-rspace:0;word-break:break-word><tbody><tr><td class=3Dpad style=3Dpaddi=
+ng-bottom:60px;padding-left:35px;padding-right:35px;padding-top:12px><div s=
+tyle=3D"color:#3c4043;direction:ltr;font-family:&#39;Google Sans Text&#39;,=
+Roboto,arial,sans-serif;font-size:14px;font-weight:400;letter-spacing:0;lin=
+e-height:1.5;text-align:left;mso-line-height-alt:21px"><p style=3Dmargin:0>=
+Thank you for using Google services!=C2=A0</p></div></td></tr></tbody></tab=
+le></td></tr></tbody></table></td></tr></tbody></table><table class=3D"row =
+row-3" align=3Dcenter width=3D100% border=3D0 cellpadding=3D0 cellspacing=
+=3D0 role=3Dpresentation style=3Dmso-table-lspace:0;mso-table-rspace:0><tbo=
+dy><tr><td><table class=3D"row-content stack" align=3Dcenter border=3D0 cel=
+lpadding=3D0 cellspacing=3D0 role=3Dpresentation style=3D"mso-table-lspace:=
+0;mso-table-rspace:0;border-radius:0;color:#000;width:570px;margin:0 auto" =
+width=3D570><tbody><tr><td class=3D"column column-1" width=3D100% style=3Dm=
+so-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;paddin=
+g-bottom:40px;padding-left:35px;padding-right:35px;padding-top:40px;vertica=
+l-align:top><table class=3D"image_block block-1" width=3D100% border=3D0 ce=
+llpadding=3D0 cellspacing=3D0 role=3Dpresentation style=3Dmso-table-lspace:=
+0;mso-table-rspace:0><tbody><tr><td class=3Dpad style=3Dwidth:100%;padding-=
+right:0;padding-left:0><div class=3Dalignment align=3Dleft><div style=3Dmax=
+-width:100px><img src=3Dhttps://ci3.googleusercontent.com/meips/ADKq_Na_BBd=
+Ww4xSS1_7W0tRI-DubxDZ-zMFzjRzsAmvUiqb-6gL7Jet5x7E0yEggz3waGJpU7WGwrwsKD6WnX=
+yjJDfHE6ceVQ6TY7Dknt9OK4MdcewBpTNfNIxYzJ_R=3Ds0-d-e1-ft#http://services.goo=
+gle.com/fh/files/emails/updated_google_logo_new.png style=3Ddisplay:block;h=
+eight:auto;border:0;width:100% width=3D100 alt=3D"" title=3D"" height=3Daut=
+o></div></div></td>
+</tr></tbody></table><table class=3D"paragraph_block block-2" width=3D100% =
+border=3D0 cellpadding=3D0 cellspacing=3D0 role=3Dpresentation style=3Dmso-=
+table-lspace:0;mso-table-rspace:0;word-break:break-word><tbody><tr><td clas=
+s=3Dpad style=3Dpadding-top:25px><div style=3D"color:#5f6368;direction:ltr;=
+font-family:&#39;Google Sans Text&#39;,Roboto,arial,sans-serif;font-size:14=
+px;font-weight:400;letter-spacing:0;line-height:1.2;text-align:left;mso-lin=
+e-height-alt:17px"><p style=3Dmargin:0>
+=C2=A9 2026 Google LLC 1600 Amphitheatre Parkway, Mountain View, CA 94043=
+=C2=A0</p></div></td></tr></tbody></table><table class=3D"paragraph_block b=
+lock-3" width=3D100% border=3D0 cellpadding=3D0 cellspacing=3D0 role=3Dpres=
+entation style=3Dmso-table-lspace:0;mso-table-rspace:0;word-break:break-wor=
+d><tbody><tr><td class=3Dpad style=3Dpadding-bottom:25px><div style=3D"colo=
+r:#5f6368;direction:ltr;font-family:&#39;Google Sans Text&#39;,Roboto,arial=
+,sans-serif;font-size:14px;font-weight:400;letter-spacing:0;line-height:1.2=
+;text-align:left;mso-line-height-alt:17px"><p style=3Dmargin:0>You have rec=
+eived this email to update you about important changes to Google&#39;s Term=
+s of Service.</p></div></td></tr></tbody></table></td></tr></tbody></table>=
+</td></tr></tbody></table></td></tr></tbody></table><!-- End --></body></ht=
+ml>
+--000000000000adcaa806548bc5ac--
